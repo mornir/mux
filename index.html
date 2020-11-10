@@ -22,8 +22,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
-      var video = document.getElementById("video")
-      var url =
+      const video = document.getElementById("video")
+      const url =
         "https://stream.mux.com/3OA7qlGP24lgIXQv4e02is8m5eFwLv02AMKT2NCfOlHuI.m3u8"
       // Let native HLS support handle it if possible
       if (video.canPlayType("application/vnd.apple.mpegurl")) {
