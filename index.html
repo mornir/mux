@@ -7,10 +7,10 @@
   </head>
   <body>
     <h2>MP4 Video</h2>
-    <video src="./earth.mp4" muted autoplay playsinline></video>
+    <video src="./earth.mp4" muted autoplay playsinline loop></video>
 
     <h2>Native HLS support</h2>
-    <video muted autoplay playsinline>
+    <video muted autoplay playsinline loop>
       <source
         src="https://stream.mux.com/3OA7qlGP24lgIXQv4e02is8m5eFwLv02AMKT2NCfOlHuI.m3u8"
         type="application/vnd.apple.mpegurl"
@@ -18,7 +18,7 @@
     </video>
 
     <h2>HLS.js</h2>
-    <video id="video" muted autoplay playsinline></video>
+    <video id="video" muted autoplay playsinline loop></video>
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
