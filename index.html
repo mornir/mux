@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mux Video Playback</title>
+
+</head>
+<body>
+
+  <h2>MP4 Video</h2>
+  <video src="./earth.mp4" autoplay muted loop></video>
+
+  <h2>Native HLS support</h2>
+  <video  autoplay muted loop >
+    <source src="https://stream.mux.com/3OA7qlGP24lgIXQv4e02is8m5eFwLv02AMKT2NCfOlHuI.m3u8" type="application/vnd.apple.mpegurl">
+  </video>
+
+  <h2>HLS.js</h2>
+  <video  id="video" autoplay muted loop></video>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    var video = document.getElementById('video');
+    var url = 'https://stream.mux.com/3OA7qlGP24lgIXQv4e02is8m5eFwLv02AMKT2NCfOlHuI.m3u8';
+      // Let native HLS support handle it if possible
+      if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = url
+        video.type = 'application/vnd.apple.mpegURL'
+      } else if (Hls.isSupported()) {
+        // HLS.js-specific setup code
+        const hls = new Hls()
+        hls.loadSource(url)
+        hls.attachMedia(video)
+      }
+    
+  </script>
+</body>
+</html>
